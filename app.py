@@ -31,7 +31,7 @@ def create_store():
   return new_store, 201
 
 
-@app.post('/store/<string:name>')
+@app.post('/store/<string:name>/item')
 def add_item(name):
   request_data = request.get_json()
   for store in stores:
@@ -42,3 +42,4 @@ def add_item(name):
       }
       store["items"].append(new_item)
       return new_item, 201
+  return { "message": "Store not found" }, 404
