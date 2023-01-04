@@ -48,6 +48,13 @@ def delete_store(store_id):
     abort(404, message="Store not found.")
 
 
+# -----------------------------------------------------------------------------
+
+@app.get("/item")
+def get_all_items():
+  return {"items": list(items.values())}
+
+
 @app.post("/item")
 def add_item():
   item_data = request.get_json()
@@ -74,11 +81,6 @@ def add_item():
   }
   items[item_id] = item
   return item, 201
-
-
-@app.get("/item")
-def get_all_items():
-  return {"items": list(items.values())}
 
 
 @app.get("/item/<string:item_id>")
