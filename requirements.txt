@@ -3,3 +3,5 @@ flask
 flask_smorest
 gunicorn
 python-dotenv
+sqlalchemy
+flask-sqlalchemy
